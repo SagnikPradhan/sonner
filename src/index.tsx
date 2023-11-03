@@ -69,6 +69,7 @@ const Toast = (props: ToastProps) => {
     position,
     gap = GAP,
     expandByDefault,
+    unstyled,
   } = props;
   const [mounted, setMounted] = React.useState(false);
   const [removed, setRemoved] = React.useState(false);
@@ -215,7 +216,7 @@ const Toast = (props: ToastProps) => {
       ref={toastRef}
       className={className + ' ' + toastClassname}
       data-sonner-toast=""
-      data-styled={!Boolean(toast.jsx || toast.unstyled)}
+      data-styled={!Boolean(toast.jsx || (unstyled ?? toast.unstyled))}
       data-mounted={mounted}
       data-promise={Boolean(toast.promise)}
       data-removed={removed}
